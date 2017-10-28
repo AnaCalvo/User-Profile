@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pfI-qm-PIy">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="A6s-oh-xQX">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="pfI-qm-PIy" customClass="LoginViewController" customModule="UserProfileApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0hh-fS-eQh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="773-Wz-HDv">
+                                <rect key="frame" x="30" y="120" width="315" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7iN-TI-F5B">
+                                <rect key="frame" x="30" y="180" width="315" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CdP-YA-aSX">
+                                <rect key="frame" x="164.5" y="260" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="doLogin:" destination="pfI-qm-PIy" eventType="touchUpInside" id="iG9-7I-oYx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="773-Wz-HDv" firstAttribute="leading" secondItem="Ljb-mA-HLY" secondAttribute="leading" constant="30" id="HZm-fl-MQl"/>
+                            <constraint firstItem="7iN-TI-F5B" firstAttribute="trailing" secondItem="773-Wz-HDv" secondAttribute="trailing" id="M0p-fj-QVS"/>
+                            <constraint firstItem="Ljb-mA-HLY" firstAttribute="trailing" secondItem="773-Wz-HDv" secondAttribute="trailing" constant="30" id="Tvw-2J-7sE"/>
+                            <constraint firstItem="CdP-YA-aSX" firstAttribute="centerX" secondItem="Ljb-mA-HLY" secondAttribute="centerX" id="UsY-bF-1Rb"/>
+                            <constraint firstItem="7iN-TI-F5B" firstAttribute="top" secondItem="773-Wz-HDv" secondAttribute="bottom" constant="30" id="dZO-CC-RF6"/>
+                            <constraint firstItem="773-Wz-HDv" firstAttribute="top" secondItem="Ljb-mA-HLY" secondAttribute="top" constant="100" id="fvS-iu-88C"/>
+                            <constraint firstItem="7iN-TI-F5B" firstAttribute="leading" secondItem="773-Wz-HDv" secondAttribute="leading" id="hgN-bE-bWL"/>
+                            <constraint firstItem="CdP-YA-aSX" firstAttribute="top" secondItem="7iN-TI-F5B" secondAttribute="bottom" constant="50" id="svm-Tx-fnG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ljb-mA-HLY"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailInput" destination="773-Wz-HDv" id="gfm-bu-82s"/>
+                        <outlet property="loginButton" destination="CdP-YA-aSX" id="2dN-iA-BO8"/>
+                        <outlet property="passwordInput" destination="7iN-TI-F5B" id="Jcd-3T-npT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mvu-bn-0bt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-247" y="171"/>
+        </scene>
+    </scenes>
+</document>
