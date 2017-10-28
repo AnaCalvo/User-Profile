@@ -8,7 +8,8 @@
 
 import UIKit
 
-class UserProfileViewController: UIViewController {
+class UserProfileViewController: UIViewController, UIImagePickerControllerDelegate,
+UINavigationControllerDelegate {
     
     @IBOutlet weak var avatar: UIImageView! {
         
@@ -24,8 +25,6 @@ class UserProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -37,6 +36,31 @@ class UserProfileViewController: UIViewController {
         }
     }
     
+    @IBAction func changeAvatar(_ sender: Any) {
+        
+        let alertController = UIAlertController(title: nil, message: "Select your photo", preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in }
+        alertController.addAction(cancelAction)
+        
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) {
+            action in
+            self.openCamera()
+        }
+        alertController.addAction(cameraAction)
+        
+        let libraryAction = UIAlertAction(title: "Library", style: .default) {
+            action in
+           self.openPhotoLibrary()
+        }
+        alertController.addAction(libraryAction)
+        
+        self.present(alertController, animated: true) {
+            // ...
+        }
+    }
+    
+    
     func presentLogin() {
         
         guard let loginController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
@@ -46,5 +70,40 @@ class UserProfileViewController: UIViewController {
         present(loginController, animated: true, completion: nil)
     }
 
+    func openCamera() {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .camera;
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+            
+        }
+    }
+    
+    func openPhotoLibrary() {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary;
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        avatar.image = image
+        dismiss(animated:true, completion: {
+            
+            let imageData = UIImageJPEGRepresentation(self.avatar.image!, 0.6)
+            let compressedJPGImage = UIImage(data: imageData!)
+            UIImageWriteToSavedPhotosAlbum(compressedJPGImage!, nil, nil, nil)
+        })
+    }
 
 }
