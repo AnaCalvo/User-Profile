@@ -14,6 +14,7 @@
 		83369DE01FA45AD400408B97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83369DDF1FA45AD400408B97 /* LoginViewController.swift */; };
 		83369DE21FA45D4C00408B97 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83369DE11FA45D4C00408B97 /* UserProfileViewController.swift */; };
 		83369DE41FA45DCA00408B97 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83369DE31FA45DCA00408B97 /* UserProfile.storyboard */; };
+		83369E0C1FA46F5F00408B97 /* UserDefaultsUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83369E0B1FA46F5F00408B97 /* UserDefaultsUtility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		83369DDF1FA45AD400408B97 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		83369DE11FA45D4C00408B97 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		83369DE31FA45DCA00408B97 /* UserProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
+		83369E0B1FA46F5F00408B97 /* UserDefaultsUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				83369DCB1FA4588100408B97 /* AppDelegate.swift */,
+				83369E0B1FA46F5F00408B97 /* UserDefaultsUtility.swift */,
 				83369DDF1FA45AD400408B97 /* LoginViewController.swift */,
 				83369DE11FA45D4C00408B97 /* UserProfileViewController.swift */,
 				83369DE31FA45DCA00408B97 /* UserProfile.storyboard */,
@@ -146,6 +149,7 @@
 				83369DE01FA45AD400408B97 /* LoginViewController.swift in Sources */,
 				83369DE21FA45D4C00408B97 /* UserProfileViewController.swift in Sources */,
 				83369DCC1FA4588100408B97 /* AppDelegate.swift in Sources */,
+				83369E0C1FA46F5F00408B97 /* UserDefaultsUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

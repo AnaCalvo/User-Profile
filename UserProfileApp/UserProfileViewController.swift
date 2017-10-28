@@ -9,29 +9,42 @@
 import UIKit
 
 class UserProfileViewController: UIViewController {
-    @IBOutlet weak var avatar: UIImageView!
+    
+    @IBOutlet weak var avatar: UIImageView! {
+        
+        didSet {
+            avatar.layer.cornerRadius = avatar.frame.height/2
+            avatar.clipsToBounds = true
+            avatar.image = #imageLiteral(resourceName: "default_avatar")
+        }
+        
+    }
     
     @IBOutlet weak var user: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        let loginCompleted = UserDefaultsUtility.hasLogged()
+        
+        if loginCompleted == false {
+            presentLogin()
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func presentLogin() {
+        
+        guard let loginController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
+            else { return }
+        
+        self.dismiss(animated: true, completion: nil)
+        present(loginController, animated: true, completion: nil)
     }
-    */
+
 
 }
