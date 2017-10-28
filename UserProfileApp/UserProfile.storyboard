@@ -36,18 +36,27 @@
                                     <action selector="changeAvatar:" destination="h3A-wz-zVk" eventType="touchUpInside" id="0QE-N2-Pyz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCQ-ji-EhV" userLabel="LogoutButton">
+                                <rect key="frame" x="214" y="62" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="doLogout:" destination="h3A-wz-zVk" eventType="touchUpInside" id="hJi-3y-mtQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kUU-pQ-6t3" firstAttribute="leading" secondItem="jU5-Vx-n0z" secondAttribute="leading" constant="30" id="5od-M6-bOB"/>
+                            <constraint firstItem="aXH-7e-Ghc" firstAttribute="top" secondItem="kCQ-ji-EhV" secondAttribute="bottom" constant="28" id="Abo-Dd-5Uq"/>
                             <constraint firstItem="aXH-7e-Ghc" firstAttribute="centerX" secondItem="jU5-Vx-n0z" secondAttribute="centerX" id="E5V-rn-rzi"/>
                             <constraint firstItem="kUU-pQ-6t3" firstAttribute="top" secondItem="m7d-kb-bSl" secondAttribute="bottom" constant="30" id="Icp-bA-vjw"/>
                             <constraint firstItem="aXH-7e-Ghc" firstAttribute="width" secondItem="m7d-kb-bSl" secondAttribute="width" id="PJ2-bI-Oyz"/>
                             <constraint firstItem="jU5-Vx-n0z" firstAttribute="trailing" secondItem="kUU-pQ-6t3" secondAttribute="trailing" constant="30" id="Thx-Mm-FrQ"/>
                             <constraint firstItem="aXH-7e-Ghc" firstAttribute="height" secondItem="m7d-kb-bSl" secondAttribute="height" id="Xjh-9m-wDn"/>
-                            <constraint firstItem="aXH-7e-Ghc" firstAttribute="top" secondItem="jU5-Vx-n0z" secondAttribute="top" constant="100" id="fCK-F2-rkQ"/>
+                            <constraint firstItem="kCQ-ji-EhV" firstAttribute="top" secondItem="jU5-Vx-n0z" secondAttribute="top" constant="42" id="ZfS-dp-0pK"/>
                             <constraint firstItem="m7d-kb-bSl" firstAttribute="centerX" secondItem="jU5-Vx-n0z" secondAttribute="centerX" id="ggx-Ci-ObW"/>
-                            <constraint firstItem="m7d-kb-bSl" firstAttribute="top" secondItem="jU5-Vx-n0z" secondAttribute="top" constant="100" id="k3l-f5-fd7"/>
+                            <constraint firstItem="m7d-kb-bSl" firstAttribute="top" secondItem="kCQ-ji-EhV" secondAttribute="bottom" constant="28" id="nEK-AO-Hbm"/>
+                            <constraint firstItem="kCQ-ji-EhV" firstAttribute="trailing" secondItem="m7d-kb-bSl" secondAttribute="trailing" id="xz8-wj-x6b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jU5-Vx-n0z"/>
                     </view>

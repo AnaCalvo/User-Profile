@@ -36,6 +36,12 @@ UINavigationControllerDelegate {
         }
     }
     
+    
+    @IBAction func doLogout(_ sender: Any) {
+        
+        presentLoginProfile()
+    }
+    
     @IBAction func changeAvatar(_ sender: Any) {
         
         let alertController = UIAlertController(title: nil, message: "Select your photo", preferredStyle: .actionSheet)
@@ -104,6 +110,15 @@ UINavigationControllerDelegate {
             let compressedJPGImage = UIImage(data: imageData!)
             UIImageWriteToSavedPhotosAlbum(compressedJPGImage!, nil, nil, nil)
         })
+    }
+    
+    func presentLoginProfile() {
+        
+        guard let loginController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
+            else { return }
+        
+        self.dismiss(animated: true, completion: nil)
+        present(loginController, animated: true, completion: nil)
     }
 
 }

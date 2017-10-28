@@ -30,8 +30,8 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CdP-YA-aSX">
-                                <rect key="frame" x="164.5" y="260" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="168.5" y="260" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="doLogin:" destination="pfI-qm-PIy" eventType="touchUpInside" id="iG9-7I-oYx"/>
                                 </connections>
