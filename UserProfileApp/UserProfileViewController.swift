@@ -18,36 +18,36 @@ UINavigationControllerDelegate {
             avatar.clipsToBounds = true
             avatar.image = #imageLiteral(resourceName: "default_avatar")
         }
-        
     }
     
-    @IBOutlet weak var user: UILabel!
+
+    @IBOutlet weak var userLabel: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    var userName: String?
+
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        let loginCompleted = UserDefaultsUtility.hasLogged()
+        let loginCompleted = UserDefaultsUtility.isUserLoggedIn()
         
         if loginCompleted == false {
-            presentLogin()
+            performSegue(withIdentifier: "ShowLoginModally", sender: self)
+        } else {
+            userLabel.text = userName
         }
     }
     
     
     @IBAction func doLogout(_ sender: Any) {
         
-        presentLoginProfile()
+        UserDefaultsUtility.setUserAsLoggedOut()
+        performSegue(withIdentifier: "ShowLoginModally", sender: self)
     }
     
     @IBAction func changeAvatar(_ sender: Any) {
         
-        let alertController = UIAlertController(title: nil, message: "Select your photo", preferredStyle: .actionSheet)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in }
-        alertController.addAction(cancelAction)
+        let alertController = UIAlertController(title: nil, message: "Select your photo from:", preferredStyle: .actionSheet)
         
         let cameraAction = UIAlertAction(title: "Camera", style: .default) {
             action in
@@ -61,19 +61,10 @@ UINavigationControllerDelegate {
         }
         alertController.addAction(libraryAction)
         
-        self.present(alertController, animated: true) {
-            // ...
-        }
-    }
-    
-    
-    func presentLogin() {
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in }
+        alertController.addAction(cancelAction)
         
-        guard let loginController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
-            else { return }
-        
-        self.dismiss(animated: true, completion: nil)
-        present(loginController, animated: true, completion: nil)
+        self.present(alertController, animated: true)
     }
 
     func openCamera() {
@@ -112,13 +103,4 @@ UINavigationControllerDelegate {
         })
     }
     
-    func presentLoginProfile() {
-        
-        guard let loginController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
-            else { return }
-        
-        self.dismiss(animated: true, completion: nil)
-        present(loginController, animated: true, completion: nil)
-    }
-
 }

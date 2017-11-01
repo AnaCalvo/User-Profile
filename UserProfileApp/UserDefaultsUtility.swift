@@ -10,16 +10,21 @@ import Foundation
 
 public class UserDefaultsUtility {
     
-    static let hasLoggedKey = "HasLogged"
+    static let isUserLoggedInKey = "IsUserLoggedIn"
     
-    static public func hasLogged() -> Bool {
+    static public func isUserLoggedIn() -> Bool {
         
-        return UserDefaults.standard.bool(forKey: hasLoggedKey)
+        return UserDefaults.standard.bool(forKey: isUserLoggedInKey)
     }
     
-    static public func setHasLogged() {
+    static public func setUserAsLoggedIn() {
         
-        UserDefaults.standard.set(true, forKey: hasLoggedKey)
+        UserDefaults.standard.set(true, forKey: isUserLoggedInKey)
+    }
+    
+    static public func setUserAsLoggedOut() {
+        
+        UserDefaults.standard.set(false, forKey: isUserLoggedInKey)
     }
     
 }

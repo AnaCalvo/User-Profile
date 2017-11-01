@@ -14,13 +14,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordInput: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-       
-        // Do any additional setup after loading the view.
-    }
-    
-   
     @IBAction func doLogin(_ sender: UIButton) {
         
         let email = emailInput.text
@@ -30,7 +23,7 @@ class LoginViewController: UIViewController {
             password == true
             else { return displayLoginError () }
         
-        UserDefaultsUtility.setHasLogged()
+        UserDefaultsUtility.setUserAsLoggedIn()
         presentUserProfile()
 
     }
@@ -58,12 +51,15 @@ class LoginViewController: UIViewController {
     
     func presentUserProfile() {
         
-        guard let userController = UIStoryboard(name: "UserProfile", bundle: nil).instantiateViewController(withIdentifier: "UserProfileViewController") as? UserProfileViewController
-            else { return }
+        guard
+            let navigationController = self.presentingViewController as? UINavigationController,
+            let userController = navigationController.viewControllers[0] as? UserProfileViewController,
+            let email = self.emailInput.text else {
+                return
+        }
         
+        userController.userName = email
         self.dismiss(animated: true, completion: nil)
-        present(userController, animated: true, completion: nil)
     }
 
-    
 }
