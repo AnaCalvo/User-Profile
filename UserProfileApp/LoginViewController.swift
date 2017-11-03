@@ -12,7 +12,12 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
-    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton! {
+        
+        didSet {
+            loginButton.layer.cornerRadius = 8
+        }
+    }
     
     @IBAction func doLogin(_ sender: UIButton) {
         

@@ -86,7 +86,8 @@ UINavigationControllerDelegate {
             
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
-            imagePicker.sourceType = .camera;
+            imagePicker.sourceType = .camera
+            imagePicker.cameraDevice = .front
             imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true, completion: nil)
             
@@ -99,7 +100,7 @@ UINavigationControllerDelegate {
             
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
-            imagePicker.sourceType = .photoLibrary;
+            imagePicker.sourceType = .photoLibrary
             imagePicker.allowsEditing = true
             self.present(imagePicker, animated: true, completion: nil)
         }
