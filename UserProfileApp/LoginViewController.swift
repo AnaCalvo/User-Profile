@@ -21,11 +21,11 @@ class LoginViewController: UIViewController {
         
         guard isValidEmail(email: email) == true,
             password == true
-            else { return displayLoginError () }
+            else {
+                return displayLoginError()
+        }
         
-        UserDefaultsUtility.setUserAsLoggedIn()
-        presentUserProfile()
-
+       presentUserProfile()
     }
     
    
@@ -58,7 +58,9 @@ class LoginViewController: UIViewController {
                 return
         }
         
-        userController.userName = email
+        UserDefaultsUtility.setUserAsLoggedIn()
+        UserDefaultsUtility.saveUserEmail(userEmail: email)
+        
         self.dismiss(animated: true, completion: nil)
     }
 

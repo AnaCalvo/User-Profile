@@ -22,27 +22,40 @@ UINavigationControllerDelegate {
     
 
     @IBOutlet weak var userLabel: UILabel!
-    
-    var userName: String?
 
-    
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
-        
-        let loginCompleted = UserDefaultsUtility.isUserLoggedIn()
-        
-        if loginCompleted == false {
+    
+        if UserDefaultsUtility.isUserLoggedIn() == false {
+            
             performSegue(withIdentifier: "ShowLoginModally", sender: self)
+            
         } else {
-            userLabel.text = userName
+            
+            userLabel.text = UserDefaultsUtility.getUserEmail()
+            
+            if UserDefaultsUtility.getUserPhoto() != nil {
+                
+                let photo = UserDefaultsUtility.getUserPhoto() as! NSData
+                avatar.image = UIImage(data: photo as Data)
+                
+            } else {
+                
+                avatar.image = #imageLiteral(resourceName: "default_avatar")
+                
+            }
         }
     }
-    
+
     
     @IBAction func doLogout(_ sender: Any) {
         
-        UserDefaultsUtility.setUserAsLoggedOut()
         performSegue(withIdentifier: "ShowLoginModally", sender: self)
+        UserDefaultsUtility.setUserAsLoggedOut()
+        UserDefaultsUtility.removeUserEmail()
+        UserDefaultsUtility.removeUserPhoto()
+        
     }
     
     @IBAction func changeAvatar(_ sender: Any) {
@@ -94,13 +107,11 @@ UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        avatar.image = image
-        dismiss(animated:true, completion: {
-            
-            let imageData = UIImageJPEGRepresentation(self.avatar.image!, 0.6)
-            let compressedJPGImage = UIImage(data: imageData!)
-            UIImageWriteToSavedPhotosAlbum(compressedJPGImage!, nil, nil, nil)
-        })
+        let imageData = UIImageJPEGRepresentation(image, 0.6) as NSData?
+        let compressedJPGImage = UIImage(data: imageData! as Data)
+        avatar.image = compressedJPGImage
+        UserDefaultsUtility.saveUserPhoto(photo: imageData!)
+        dismiss(animated:true, completion: nil)
     }
     
 }
