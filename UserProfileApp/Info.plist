@@ -6,8 +6,6 @@
 	<string>Used to choose a photo for changing the avatar user</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Used to take a photo for changing the avatar user</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Used to save the photo </string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

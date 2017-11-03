@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton! {
         
         didSet {
+            
             loginButton.layer.cornerRadius = 8
         }
     }
@@ -44,7 +45,7 @@ class LoginViewController: UIViewController {
     }
     
     // Unsuccessful login alert
-    func displayLoginError () {
+    func displayLoginError() {
         
         let unsuccessLoginalert = UIAlertController(title: "Upsss 😕", message: "Check out the fields. Something is wrong.", preferredStyle: UIAlertControllerStyle.alert)
         
@@ -58,7 +59,7 @@ class LoginViewController: UIViewController {
         
         guard
             let navigationController = self.presentingViewController as? UINavigationController,
-            let userController = navigationController.viewControllers[0] as? UserProfileViewController,
+            let _ = navigationController.viewControllers[0] as? UserProfileViewController,
             let email = self.emailInput.text else {
                 return
         }

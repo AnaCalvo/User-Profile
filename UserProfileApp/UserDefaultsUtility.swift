@@ -40,6 +40,7 @@ public class UserDefaultsUtility {
     }
     
     static public func removeUserEmail() {
+        
         UserDefaults.standard.removeObject(forKey: userEmailKey)
     }
     
@@ -54,6 +55,7 @@ public class UserDefaultsUtility {
     }
     
     static public func removeUserPhoto() {
+        
         UserDefaults.standard.removeObject(forKey: userPhotoKey)
     }
     

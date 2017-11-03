@@ -14,6 +14,7 @@ UINavigationControllerDelegate {
     @IBOutlet weak var avatar: UIImageView! {
         
         didSet {
+            
             avatar.layer.cornerRadius = avatar.frame.height/2
             avatar.clipsToBounds = true
             avatar.image = #imageLiteral(resourceName: "default_avatar")
@@ -35,19 +36,18 @@ UINavigationControllerDelegate {
             
             userLabel.text = UserDefaultsUtility.getUserEmail()
             
-            if UserDefaultsUtility.getUserPhoto() != nil {
+            if let photo = UserDefaultsUtility.getUserPhoto() {
                 
-                let photo = UserDefaultsUtility.getUserPhoto() as! NSData
                 avatar.image = UIImage(data: photo as Data)
                 
             } else {
                 
                 avatar.image = #imageLiteral(resourceName: "default_avatar")
-                
             }
+
         }
     }
-
+    
     
     @IBAction func doLogout(_ sender: Any) {
         
